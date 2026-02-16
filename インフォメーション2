@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>施設インフォメーション</title>
+    <style>
+        :root { --primary: #34495e; --accent: #9b59b6; --bg: #fdfeff; }
+        body { font-family: sans-serif; background: var(--bg); margin: 0; padding: 20px; color: var(--primary); }
+        .container { max-width: 500px; margin: auto; }
+        .header { text-align: center; padding: 20px 0; border-bottom: 2px solid #eee; margin-bottom: 20px; }
+        
+        /* リスト形式のアイテム */
+        .info-item {
+            background: white;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid transparent;
+        }
+        .info-item:active { transform: scale(0.98); background: #f9f9f9; }
+        
+        .title { font-weight: bold; font-size: 16px; display: flex; align-items: center; gap: 10px; }
+        .detail { display: none; margin-top: 10px; font-size: 14px; color: #666; line-height: 1.6; border-top: 1px solid #eee; padding-top: 10px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🏥 館内施設のご案内</h1>
+        <p>詳細を見るには項目をタップ</p>
+    </div>
+
+    <div class="info-item" onclick="toggle(this)">
+        <div class="title"><span>🍷</span> ラウンジ「宙」</div>
+        <div class="detail">【営業時間】18:00〜23:00<br>ご宿泊のお客様はワンドリンク無料でご利用いただけます。</div>
+    </div>
+
+    <div class="info-item" onclick="toggle(this)">
+        <div class="title"><span>🌊</span> 展望大浴場</div>
+        <div class="detail">【場所】10階最上階<br>【時間】15:00〜24:00 / 6:00〜9:00<br>タオルはお部屋からお持ちください。</div>
+    </div>
+
+    <div class="info-item" onclick="toggle(this)">
+        <div class="title"><span>🧊</span> 自動販売機・製氷機</div>
+        <div class="detail">【場所】3階・6階・9階<br>製氷機は各階のエレベーターホール横にございます。</div>
+    </div>
+</div>
+
+<script>
+    function toggle(el) {
+        const detail = el.querySelector('.detail');
+        const isOpen = detail.style.display === 'block';
+        // 全部閉じてから開く（アコーディオン形式）
+        document.querySelectorAll('.detail').forEach(d => d.style.display = 'none');
+        detail.style.display = isOpen ? 'none' : 'block';
+    }
+</script>
+</body>
+</html>
