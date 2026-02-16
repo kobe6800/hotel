@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>施設のご案内</title>
     <style>
-        /* シンプルで清潔感のある紺色ベース */
         body { font-family: "Helvetica Neue", Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px; color: #333; }
         .container { max-width: 500px; margin: auto; }
         h1 { text-align: center; font-size: 20px; margin-bottom: 30px; color: #2c3e50; border-bottom: 2px solid #2c3e50; padding-bottom: 10px; }
-        
-        /* 押しやすい横長ボタン */
         .info-btn { 
             display: block; width: 100%; background: white; border: 1px solid #ddd; 
             padding: 18px; margin-bottom: 12px; border-radius: 8px; font-size: 16px; 
@@ -18,8 +15,6 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .info-btn:active { background-color: #e9ecef; transform: scale(0.98); }
-
-        /* 回答を表示するエリア */
         #display-area { 
             display: none; margin-top: 20px; padding: 20px; background: white; 
             border-radius: 12px; border-left: 5px solid #2c3e50; line-height: 1.6;
@@ -29,34 +24,25 @@
     </style>
 </head>
 <body>
-
 <div class="container">
     <h1>🏨 館内施設のご案内</h1>
-
     <button class="info-btn" onclick="view('大浴場','10階にございます。<br>【時間】15:00〜24:00 / 6:00〜9:00<br>※タオルはお部屋からお持ちください。')">🚿 大浴場について</button>
-    
     <button class="info-btn" onclick="view('自動販売機','3階と8階のエレベーター横にございます。<br>製氷機は8階のみの設置となります。')">🧊 自販機・製氷機</button>
-    
     <button class="info-btn" onclick="view('喫煙所','1階ロビー奥の屋外スペースにございます。<br>館内は全室禁煙となっております。')">🚬 喫煙所のご案内</button>
-    
     <button class="info-btn" onclick="view('コインランドリー','2階に3台ございます。<br>洗剤は自動投入です。1回300円より。')">🧺 コインランドリー</button>
-
     <div id="display-area">
         <strong id="info-title" style="color:#2c3e50; font-size:18px;"></strong><br>
         <span id="info-body"></span>
     </div>
 </div>
-
 <script>
     function view(title, text) {
         const area = document.getElementById('display-area');
         document.getElementById('info-title').innerText = "【" + title + "】";
         document.getElementById('info-body').innerHTML = text;
         area.style.display = 'block';
-        // クリックした時に少し下にスクロールして回答を見やすくする
         area.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 </script>
-
 </body>
 </html>
